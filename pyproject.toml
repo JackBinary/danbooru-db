@@ -1,0 +1,25 @@
+[project]
+name = "danbooru-db"
+version = "0.1.0"
+description = "Vector database of Danbooru general-category tag wiki pages"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "httpx>=0.27",
+    "tqdm>=4.66",
+    "sqlite-vec>=0.1.6",
+    "llama-cpp-python>=0.3.2",
+    "huggingface-hub>=0.26",
+    "numpy>=2.0",
+    "sentence-transformers>=5.5.1",
+]
+
+[project.scripts]
+danbooru-db-fetch = "danbooru_db.fetch:main"
+danbooru-db-embed = "danbooru_db.embed:main"
+danbooru-db-query = "danbooru_db.query:main"
+danbooru-db-build = "danbooru_db.build:main"
+
+[build-system]
+requires = ["uv_build>=0.11.6,<0.12.0"]
+build-backend = "uv_build"
