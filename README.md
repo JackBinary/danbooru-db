@@ -6,16 +6,6 @@ tag wiki pages, embedded with
 — a GGUF of `microsoft/harrier-oss-v1-270m`, a 270M-param Gemma-embedding
 model with 640-dim output and last-token pooling.
 
-> **Indexing uses BF16, queries use Q8\_0** (both from `mykor`'s repo). BF16
-> at index time keeps the cosine geometry clean across 9k embeddings; Q8\_0
-> at query time is ~5× faster and produces query vectors that are
-> numerically identical (cosine ≈ 0.9997) to BF16 — target ranks against
-> the BF16 corpus are unchanged.
->
-> Don't use [`keisuke-miyako/harrier-oss-v1-270m-gguf-q8_0`](https://huggingface.co/keisuke-miyako/harrier-oss-v1-270m-gguf-q8_0)
-> for either role — its quantization is degraded enough that `long_hair`
-> ranks below the top 500 for the query `"long hair"`.
-
 ## What's in the database
 
 A single SQLite file (default `danbooru.db`) with:
